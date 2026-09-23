@@ -59,7 +59,7 @@
       ['wifi-off', 'O app funciona sem internet?',
         'Funciona. Você confirma as tarefas normalmente e elas ficam marcadas como <strong>Aguardando envio</strong>. Quando a internet volta, o grupo recebe tudo.'],
       ['type', 'Como aumento as letras?',
-        'Na aba <strong>Configurações</strong>, em Acessibilidade, escolha <strong>A+</strong> ou <strong>A++</strong>. Ali também dá para ligar o <strong>Alto contraste</strong>.'],
+        'Na aba <strong>Config.</strong>, em Acessibilidade, escolha <strong>A+</strong> ou <strong>A++</strong>. Ali também dá para ligar o <strong>Alto contraste</strong>.'],
     ];
   }
 

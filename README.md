@@ -6,7 +6,13 @@ Protótipo navegável do **Bem Cuidar**, aplicativo de monitoramento e gestão c
 
 No computador, o app aparece dentro de um celular, com um painel de demonstração ao lado para simular horários e situações. No celular, ele ocupa a tela inteira.
 
-<!-- SCREENSHOTS -->
+| Linha do tempo | Detalhe da tarefa | Nova tarefa | Alarme |
+|---|---|---|---|
+| ![Linha do tempo](docs/screenshots/01-linha-do-tempo.png) | ![Detalhe da tarefa](docs/screenshots/02-detalhe-da-tarefa.png) | ![Nova tarefa](docs/screenshots/03-nova-tarefa.png) | ![Alarme de horário rígido](docs/screenshots/04-alarme.png) |
+| **SOS** | **Emergência** | **Relatório** | **Configurações** |
+| ![Confirmação do SOS](docs/screenshots/05-sos.png) | ![Tela de emergência](docs/screenshots/06-emergencia.png) | ![Relatório de participação](docs/screenshots/07-relatorio.png) | ![Configurações](docs/screenshots/08-configuracoes.png) |
+
+![Painel de demonstração ao lado do celular](docs/screenshots/10-painel-de-demonstracao.png)
 
 ## O que o protótipo mostra
 

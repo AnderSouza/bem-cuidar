@@ -105,8 +105,8 @@ img { max-width: 100%; }
 
 .device {
   position: relative;
-  width: 390px;
-  height: min(844px, calc(100vh - 48px));
+  width: 410px;
+  height: min(864px, calc(100vh - 48px));
   border-radius: 46px;
   background: #1c1b18;
   padding: 10px;
