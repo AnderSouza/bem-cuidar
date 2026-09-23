@@ -1,0 +1,289 @@
+/* Bem Cuidar — tarefas: detalhe, confirmação, nova tarefa, ocorrência, filtro e compartilhamento.
+ * Só tokens de css/styles.css; tamanhos em rem para acompanhar a opção de texto grande.
+ */
+
+/* ================================================================== folhas empilhadas (editar sobre o detalhe) */
+
+.tk-stacked .sheet-backdrop { background: rgba(28, 26, 20, 0.22); }
+
+/* ================================================================== cartão de situação */
+
+.tk-status { padding: 16px; }
+.tk-status-late { background: var(--amber-50); box-shadow: var(--shadow-1), inset 0 0 0 2px var(--amber); }
+.tk-status-late .icon-tile { background: var(--amber-100); color: var(--amber-ink); }
+.tk-status-occ { box-shadow: var(--shadow-1), inset 0 0 0 1.5px #dccbe9; }
+
+.tk-head { display: flex; align-items: center; gap: 12px; }
+.tk-tile { width: 52px; height: 52px; border-radius: 14px; }
+.tk-head-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.tk-head-top { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.tk-head-kind { flex: 1 1 auto; min-width: 0; font-size: 0.875rem; font-weight: 700; color: var(--ink-3); }
+.tk-head-top .badge { margin-left: auto; }
+.tk-head-time { display: flex; align-items: baseline; gap: 8px; font-size: 1.5rem; font-weight: 700; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.tk-head-orig { font-size: 0.9375rem; font-weight: 400; color: var(--ink-3); }
+
+.tk-state {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.tk-state .ic { margin-top: 1px; }
+.tk-state-ok { background: var(--green-50); color: var(--green-ink); }
+.tk-state-warn { background: var(--amber-100); color: var(--amber-ink); }
+.tk-state-neutral { background: var(--surface-2); color: var(--ink-2); }
+.tk-state-occ { background: var(--purple-50); color: var(--purple); }
+
+.tk-compact-detail { display: flex; align-items: flex-start; gap: 8px; margin: 10px 0 0; color: var(--ink-2); font-size: 0.9375rem; }
+.tk-compact-detail .ic { margin-top: 2px; color: var(--ink-3); }
+
+/* linhas de informação (rótulo e valor; quebram em duas linhas com texto grande) */
+.tk-facts { margin: 12px 0 0; }
+.tk-fact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  column-gap: 12px;
+  row-gap: 6px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+.tk-fact:last-child { padding-bottom: 2px; }
+.tk-status-late .tk-fact { border-top-color: var(--amber-100); }
+.tk-fact-label { flex: 0 0 7.25rem; display: flex; align-items: center; gap: 6px; padding-top: 0.125rem; color: var(--ink-3); font-size: 0.875rem; }
+.tk-fact-value {
+  flex: 1 1 10rem;
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+.tk-text { color: var(--ink); }
+.tk-quote { color: var(--ink-2); font-style: italic; }
+.tk-value { font-size: 1.125rem; font-variant-numeric: tabular-nums; }
+.tk-muted { color: var(--ink-3); }
+
+.tk-person { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+.tk-person-text { display: flex; flex-direction: column; min-width: 0; line-height: 1.2; }
+.tk-person-name { font-weight: 700; }
+.tk-person-rel { font-size: 0.8125rem; color: var(--ink-3); }
+.tk-inline-btn { min-height: 44px; padding: 0 12px; font-size: 0.9375rem; }
+.tk-fact-value .btn-ghost { margin-left: -4px; }
+
+/* avisos em faixa (horário rígido, aguardando envio, dia futuro) */
+.tk-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+.tk-info .ic { margin-top: 1px; }
+.tk-info-rigid { background: var(--red-50); color: var(--red-ink); }
+.tk-info-sync { background: var(--blue-50); color: var(--blue); }
+.tk-info-neutral { background: var(--surface-2); color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--line); }
+
+/* ================================================================== linhas de botões */
+
+.tk-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.tk-row > .btn { flex: 1 1 9rem; }
+.tk-manage { margin-top: 16px; }
+.tk-stack { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+
+/* ================================================================== painéis de confirmação e de adiamento */
+
+.tk-panel { margin-top: 18px; }
+.tk-panel-title { margin: 0 0 4px; font-size: 1.125rem; line-height: 1.25; }
+.tk-panel-title:focus { outline: none; }
+.tk-panel-sub { margin: 0 0 14px; color: var(--ink-3); font-size: 0.9375rem; }
+
+.tk-time { max-width: 11rem; font-size: 1.125rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tk-quick { margin-top: 2px; }
+
+.tk-chip { min-height: 44px; }
+.tk-chip-add { font-weight: 400; color: var(--ink-2); }
+.tk-chip-add .ic { color: var(--green); }
+.tk-chip-person { padding-left: 6px; }
+.chip[aria-pressed='true'] .avatar { box-shadow: 0 0 0 2px #fff; }
+.tk-opt { font-weight: 400; color: var(--ink-3); }
+
+.tk-bp { display: flex; align-items: flex-end; gap: 8px; }
+.tk-bp-part { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.tk-bp-cap { font-size: 0.8125rem; font-weight: 700; color: var(--ink-3); }
+.tk-bp-sep { padding-bottom: 8px; font-size: 1.5rem; font-weight: 700; color: var(--ink-3); }
+.tk-num {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.tk-num::-webkit-outer-spin-button,
+.tk-num::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.tk-num::placeholder { font-weight: 400; color: var(--ink-3); opacity: 0.7; }
+.input-row .tk-num { text-align: left; }
+
+.tk-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.tk-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 76px;
+  padding: 8px 4px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow-1), inset 0 0 0 1.5px var(--line-strong);
+  color: var(--ink);
+  text-align: center;
+}
+.tk-choice:hover { background: var(--green-50); box-shadow: inset 0 0 0 2px var(--green); }
+.tk-choice:active { transform: translateY(1px); }
+.tk-choice-main { font-size: 1.125rem; font-weight: 700; }
+.tk-choice-sub { font-size: 0.875rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+
+/* ================================================================== erros e dicas */
+
+.tk-error { display: flex; align-items: flex-start; gap: 6px; margin: 0; color: var(--red-ink); font-size: 0.875rem; font-weight: 700; }
+.tk-error .ic { margin-top: 1px; }
+.tk-form [aria-invalid='true'] { box-shadow: inset 0 0 0 2px var(--red); background: var(--red-50); }
+.tk-foot-error { justify-content: center; }
+.tk-hint-warn { display: flex; align-items: flex-start; gap: 6px; color: var(--amber-ink); font-weight: 700; }
+.tk-hint-warn .ic { margin-top: 1px; }
+.tk-foot-note { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 0; color: var(--ink-3); font-size: 0.875rem; text-align: center; }
+
+/* ================================================================== últimos registros */
+
+.tk-hist { margin-top: 22px; }
+.tk-hist-list { list-style: none; margin: 0; padding: 0; }
+.tk-hist-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+  min-height: 48px;
+  padding: 10px 14px;
+  font-size: 0.9375rem;
+}
+.tk-hist-item + .tk-hist-item { border-top: 1px solid var(--line); }
+.tk-hist-day { font-weight: 700; }
+.tk-hist-res { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.tk-hist-ok .ic { color: var(--green); }
+.tk-hist-miss { color: var(--amber-ink); font-weight: 700; }
+
+/* ================================================================== formulário: nova tarefa e ocorrência */
+
+.tk-tabs { margin: 2px 0 18px; }
+.tk-tabs .seg-btn { min-height: 44px; padding: 6px 8px; line-height: 1.15; }
+
+.tk-lead { margin: 0 0 16px; color: var(--ink-2); font-size: 0.9375rem; }
+
+.tk-form .option-grid .option { min-height: 80px; }
+
+.tk-day-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.tk-date { flex: 1 1 9.5rem; width: auto; min-width: 0; font-variant-numeric: tabular-nums; }
+
+.tk-form .seg-btn,
+.tk-seg-grid .seg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  line-height: 1.15;
+}
+
+.tk-switch-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  min-height: 64px;
+  cursor: pointer;
+}
+.tk-switch-row:hover { background: var(--surface-2); }
+.tk-switch-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.tk-switch-label { display: flex; align-items: center; gap: 6px; font-weight: 700; }
+.tk-switch-label .ic { color: var(--green); }
+
+/* gravidade: ícone sobre o texto, cabe com texto grande */
+.tk-sev .seg-btn { flex-direction: column; gap: 2px; min-height: 56px; padding: 6px 4px; }
+.tk-sev .seg-btn[data-v='moderada'][aria-pressed='true'] { color: var(--amber-ink); box-shadow: var(--shadow-1), inset 0 0 0 2px var(--amber); }
+.tk-sev .seg-btn[data-v='grave'][aria-pressed='true'] { color: var(--red-ink); box-shadow: var(--shadow-1), inset 0 0 0 2px var(--red); }
+
+.tk-sos {
+  margin: 0 0 16px;
+  padding: 14px;
+  border-radius: var(--radius);
+  background: var(--red-50);
+  box-shadow: inset 0 0 0 2px var(--red-100);
+}
+.tk-sos-title { display: flex; align-items: center; gap: 8px; margin: 0 0 4px; color: var(--red-ink); font-weight: 700; font-size: 1.0625rem; }
+.tk-sos-text { margin: 0 0 12px; color: var(--ink-2); font-size: 0.9375rem; }
+
+/* ================================================================== filtro */
+
+.tk-seg-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tk-count {
+  min-width: 1.5rem;
+  padding: 1px 6px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-3);
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+.seg-btn[aria-pressed='true'] .tk-count { background: var(--green-50); color: var(--green-ink); }
+
+/* ================================================================== compartilhar */
+
+.tk-msg { display: flex; flex-direction: column; padding: 14px 16px; font-size: 0.9375rem; line-height: 1.45; border-top-left-radius: 4px; }
+.tk-msg-title { font-weight: 700; font-size: 1rem; }
+.tk-msg-muted { color: var(--ink-3); font-size: 0.875rem; }
+.tk-msg-counts { margin-top: 6px; font-weight: 700; }
+.tk-msg-gap { height: 10px; }
+.tk-msg-h { font-weight: 700; color: var(--green-ink); }
+.tk-msg-item { display: grid; grid-template-columns: 3.25rem minmax(0, 1fr); column-gap: 6px; }
+.tk-msg-time { font-weight: 700; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.tk-msg-sub { padding-left: calc(3.25rem + 6px); color: var(--ink-3); font-size: 0.875rem; }
+
+.tk-invite-sec { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--line); }
+.tk-members { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 0.9375rem; color: var(--ink-2); }
+.tk-avatars { display: flex; flex-shrink: 0; }
+.tk-avatars .avatar { box-shadow: 0 0 0 2px var(--bg); }
+.tk-avatars .avatar + .avatar { margin-left: -8px; }
+.tk-invite {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1.5px var(--line-strong);
+  color: var(--green-ink);
+}
+.tk-invite-url { min-width: 0; font-weight: 700; overflow-wrap: anywhere; }
+.tk-invite-code { white-space: nowrap; }
+.tk-invite-hint { margin: -2px 0 12px; }
+
+/* ================================================================== alto contraste */
+
+.app.hc .tk-status, .app.hc .tk-choice, .app.hc .tk-invite, .app.hc .tk-switch-row { box-shadow: inset 0 0 0 2px #000; }
+.app.hc .tk-status-late { box-shadow: inset 0 0 0 3px var(--amber); }

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fcf8f0">
+  <meta name="description" content="Protótipo de alta fidelidade do Bem Cuidar, aplicativo de gestão compartilhada de cuidados com idosos (IHC, CEFET/RJ).">
+  <title>Bem Cuidar · Protótipo de alta fidelidade</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23007758'/%3E%3Cpath d='M16 24s-8-4.6-8-10.2A4.4 4.4 0 0 1 16 11a4.4 4.4 0 0 1 8 2.8C24 19.4 16 24 16 24z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/tarefas.css">
+  <link rel="stylesheet" href="css/emergencia.css">
+  <link rel="stylesheet" href="css/telas.css">
+</head>
+<body>
+  <div class="stage">
+    <aside class="demo" id="demo-panel" aria-label="Painel de demonstração do protótipo"></aside>
+
+    <div class="device">
+      <div class="app" id="app">
+        <header class="appbar" id="appbar"></header>
+        <div class="net-banner" id="net-banner" role="status" hidden></div>
+        <main class="view" id="view" tabindex="-1"></main>
+        <div class="dock" id="dock" hidden></div>
+        <nav class="tabbar" id="tabbar" aria-label="Navegação principal"></nav>
+        <div id="sheet-layer"></div>
+        <div id="overlay-layer"></div>
+        <div class="toast-slot" id="toast-slot" aria-live="polite"></div>
+        <div class="push-slot" id="push-slot" aria-live="assertive"></div>
+      </div>
+    </div>
+  </div>
+
+  <noscript>Este protótipo precisa de JavaScript para funcionar.</noscript>
+
+  <script src="js/util.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/screens/timeline.js"></script>
+  <script src="js/screens/task.js"></script>
+  <script src="js/screens/sos.js"></script>
+  <script src="js/screens/report.js"></script>
+  <script src="js/screens/settings.js"></script>
+  <script src="js/screens/help.js"></script>
+  <script src="js/screens/profile.js"></script>
+  <script src="js/alerts.js"></script>
+  <script src="js/demo.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
